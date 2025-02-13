@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Executando Laravel Pint..."
+./vendor/bin/pint
+
+echo "📌 Adicionando arquivos formatados ao commit..."
+git add .
+
+echo "✅ Pint finalizado!"
