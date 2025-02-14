@@ -8,3 +8,14 @@ echo "📌 Adicionando arquivos formatados ao commit..."
 git add .
 
 echo "✅ Pint finalizado!"
+
+echo "🚀 Executando testes com Pest..."
+./vendor/bin/pest --parallel --stop-on-failure
+
+if [ $? -ne 0 ]; then
+  echo "❌ Testes falharam!"
+  exit 1
+fi
+
+echo "✅ Testes finalizados!"
+

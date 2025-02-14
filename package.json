@@ -4,9 +4,7 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "lint": "./vendor/bin/pint",
-        "pre-commit": "lint",
-        "prepare": "husky install"
+        "format": "./vendor/bin/pint"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
