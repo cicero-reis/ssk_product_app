@@ -8,10 +8,10 @@ use App\Infrastructure\Product\Contract\IProductCreateRepository;
 use App\Infrastructure\Product\Contract\IProductDeleteRepository;
 use App\Infrastructure\Product\Contract\IProductGetByIdRepository;
 use App\Infrastructure\Product\Contract\IProductUpdateRepository;
-use App\Infrastructure\Product\Eloquent\ProductAllRepository;
-use App\Infrastructure\Product\Eloquent\ProductCreateRepository;
-use App\Infrastructure\Product\Eloquent\ProductDeleteRepository;
-use App\Infrastructure\Product\Eloquent\ProductUpdateRepository;
+use App\Infrastructure\Product\Repository\ProductAllRepository;
+use App\Infrastructure\Product\Repository\ProductCreateRepository;
+use App\Infrastructure\Product\Repository\ProductDeleteRepository;
+use App\Infrastructure\Product\Repository\ProductUpdateRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

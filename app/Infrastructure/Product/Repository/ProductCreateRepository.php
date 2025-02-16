@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Product\Eloquent;
+namespace App\Infrastructure\Product\Repository;
 
 use App\Infrastructure\Product\Base\ProductCreateAbstractRepository;
 use App\Infrastructure\Product\Contract\IProductCreateRepository;

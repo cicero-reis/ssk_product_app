@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Product\Eloquent;
+namespace App\Infrastructure\Product\Repository;
 
 use App\Infrastructure\Product\Base\ProductAllAbstractRepository;
 use App\Infrastructure\Product\Contract\IProductAllRepository;

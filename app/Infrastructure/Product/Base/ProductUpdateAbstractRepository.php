@@ -13,6 +13,8 @@ abstract class ProductUpdateAbstractRepository
 
     public function update(int $id, array $body = [])
     {
-        return $this->model->find($id)->update($body);
+        $this->model->find($id)->update($body);
+
+        return $this->model->find($id);
     }
 }
