@@ -10,10 +10,10 @@ class MensagemDetails
 
     public string $message;
 
-    public function __construct(string $message = 'Not Found', int $code = 404, string $alertInfo = 'Not Found')
+    public function __construct(string $message = 'Not Found', string $alertInfo = 'danger', int $code = 404)
     {
-        $this->code = $code;
-        $this->alertInfo = $alertInfo;
         $this->message = $message;
+        $this->alertInfo = $alertInfo;
+        $this->code = $code;
     }
 }
