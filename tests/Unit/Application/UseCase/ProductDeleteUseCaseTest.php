@@ -23,4 +23,17 @@ class ProductDeleteUseCaseTest extends TestCase
 
         $this->assertTrue($result);
     }
+
+    public function test_product_delete_use_case_throws_not_found_exception_when_invalid_id()
+    {
+        $productRepositoryMock = $this->createMock(IProductDeleteRepository::class);
+
+        $useCase = new ProductDeleteUseCase($productRepositoryMock);
+
+        $this->expectException(\App\Exceptions\NotFoundException::class);
+        $this->expectExceptionMessage('Invalid id');
+        $this->expectExceptionCode(400);
+
+        $useCase->execute(0);
+    }
 }
