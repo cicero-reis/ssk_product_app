@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Product\Contract;
 
-interface IProductAllRepository
+interface IProductGetAllRepository
 {
     public function getAll(array $body);
 }

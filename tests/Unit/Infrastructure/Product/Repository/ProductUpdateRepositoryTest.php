@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit\Infrastructure\Product\Repository;
+
 use App\Infrastructure\Product\Repository\ProductUpdateRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;

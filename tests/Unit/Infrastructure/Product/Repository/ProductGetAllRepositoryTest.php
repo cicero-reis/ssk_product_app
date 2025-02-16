@@ -1,11 +1,13 @@
 <?php
 
-use App\Infrastructure\Product\Repository\ProductAllRepository;
+namespace Tests\Unit\Infrastructure\Product\Repository;
+
+use App\Infrastructure\Product\Repository\ProductGetAllRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ProductAllRepositoryTest extends TestCase
+class ProductGetAllRepositoryTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -20,7 +22,7 @@ class ProductAllRepositoryTest extends TestCase
         Product::factory()->count(10)->create();
 
         // Instantiate the repository
-        $repository = app(ProductAllRepository::class);
+        $repository = app(ProductGetAllRepository::class);
         $products = $repository->getAll();
 
         // Assert to check if the repository returns products
@@ -31,7 +33,7 @@ class ProductAllRepositoryTest extends TestCase
     public function test_repository_returns_empty_array()
     {
         // Instantiate the repository
-        $repository = app(ProductAllRepository::class);
+        $repository = app(ProductGetAllRepository::class);
         $products = $repository->getAll();
 
         // Assert to check if the repository returns an empty array

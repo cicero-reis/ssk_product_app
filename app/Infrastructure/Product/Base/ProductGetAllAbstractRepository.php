@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Product\Base;
 
-abstract class ProductAllAbstractRepository
+abstract class ProductGetAllAbstractRepository
 {
     protected $model;
 
