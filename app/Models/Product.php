@@ -18,4 +18,6 @@ class Product extends Model
         'image_url',
         'image_filename',
     ];
+
+    protected $guarded = ['id'];
 }

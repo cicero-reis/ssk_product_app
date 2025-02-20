@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Application\UseCase\Contract\IProductGetAllUseCase;
 use App\Exceptions\MensagemDetails;
 use App\Exceptions\NotFoundException;
-use App\Http\Resources\ProductCollection;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 
 class ProductGetAllController extends Controller
 {
-    protected $productUseCase;
+    private $productUseCase;
 
     public function __construct(IProductGetAllUseCase $productUseCase)
     {
@@ -22,7 +23,15 @@ class ProductGetAllController extends Controller
         try {
             $body = $request->all();
 
-            return new ProductCollection($this->productUseCase->execute($body));
+            $products = $this->productUseCase->execute($body);
+
+            if (empty($products)) {
+                throw new NotFoundException('Not product found', 404);
+            }
+
+            $products = ProductResource::collection($products);
+
+            return response()->json($products, 200);
 
         } catch (NotFoundException $e) {
 

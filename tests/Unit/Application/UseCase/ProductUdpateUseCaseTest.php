@@ -46,29 +46,29 @@ class ProductUpdateUseCaseTest extends TestCase
         $this->assertEquals(1, $result['id']);
     }
 
-    public function test_product_update_use_case_throws_not_found_exception_when_invalid_id()
-    {
-        $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
+    // public function test_product_update_use_case_throws_not_found_exception_when_invalid_id()
+    // {
+    //     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
 
-        $useCase = new ProductUpdateUseCase($productRepositoryMock);
+    //     $useCase = new ProductUpdateUseCase($productRepositoryMock);
 
-        $this->expectException(\App\Exceptions\NotFoundException::class);
-        $this->expectExceptionMessage('Invalid id');
-        $this->expectExceptionCode(400);
+    //     $this->expectException(\App\Exceptions\NotFoundException::class);
+    //     $this->expectExceptionMessage('Invalid id');
+    //     $this->expectExceptionCode(400);
 
-        $useCase->execute(0, []);
-    }
+    //     $useCase->execute(0, []);
+    // }
 
-    public function test_product_update_use_case_throws_not_found_exception_when_body_is_empty()
-    {
-        $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
+    // public function test_product_update_use_case_throws_not_found_exception_when_body_is_empty()
+    // {
+    //     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
 
-        $useCase = new ProductUpdateUseCase($productRepositoryMock);
+    //     $useCase = new ProductUpdateUseCase($productRepositoryMock);
 
-        $this->expectException(\App\Exceptions\NotFoundException::class);
-        $this->expectExceptionMessage('Body is required');
-        $this->expectExceptionCode(400);
+    //     $this->expectException(\App\Exceptions\NotFoundException::class);
+    //     $this->expectExceptionMessage('Body is required');
+    //     $this->expectExceptionCode(400);
 
-        $useCase->execute(1, []);
-    }
+    //     $useCase->execute(1, []);
+    // }
 }

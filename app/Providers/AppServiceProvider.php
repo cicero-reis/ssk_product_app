@@ -12,7 +12,6 @@ use App\Application\UseCase\ProductDeleteUseCase;
 use App\Application\UseCase\ProductGetAllUseCase;
 use App\Application\UseCase\ProductGetByIdUseCase;
 use App\Application\UseCase\ProductUpdateUseCase;
-use App\Infrastructure\Product\Base\ProductGetByIdAbstractRepository;
 use App\Infrastructure\Product\Contract\IProductCreateRepository;
 use App\Infrastructure\Product\Contract\IProductDeleteRepository;
 use App\Infrastructure\Product\Contract\IProductGetAllRepository;
@@ -21,6 +20,7 @@ use App\Infrastructure\Product\Contract\IProductUpdateRepository;
 use App\Infrastructure\Product\Repository\ProductCreateRepository;
 use App\Infrastructure\Product\Repository\ProductDeleteRepository;
 use App\Infrastructure\Product\Repository\ProductGetAllRepository;
+use App\Infrastructure\Product\Repository\ProductGetByIdRepository;
 use App\Infrastructure\Product\Repository\ProductUpdateRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(IProductGetAllRepository::class, ProductGetAllRepository::class);
-        $this->app->singleton(IProductGetByIdRepository::class, ProductGetByIdAbstractRepository::class);
+        $this->app->singleton(IProductGetByIdRepository::class, ProductGetByIdRepository::class);
         $this->app->singleton(IProductCreateRepository::class, ProductCreateRepository::class);
         $this->app->singleton(IProductUpdateRepository::class, ProductUpdateRepository::class);
         $this->app->singleton(IProductDeleteRepository::class, ProductDeleteRepository::class);

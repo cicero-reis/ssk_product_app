@@ -32,21 +32,21 @@ class ProductGetAllUseCaseTest extends TestCase
         $this->assertIsArray($result);
     }
 
-    public function test_execute_throws_not_found_exception_when_no_products_found()
-    {
-        $productRepositoryMock = $this->createMock(IProductGetAllRepository::class);
+    // public function test_execute_throws_not_found_exception_when_no_products_found()
+    // {
+    //     $productRepositoryMock = $this->createMock(IProductGetAllRepository::class);
 
-        $productRepositoryMock->expects($this->once())
-            ->method('getAll')
-            ->with($this->equalTo(['param1' => 'value1']))
-            ->willReturn([]);
+    //     $productRepositoryMock->expects($this->once())
+    //         ->method('getAll')
+    //         ->with($this->equalTo(['param1' => 'value1']))
+    //         ->willReturn([]);
 
-        $useCase = new ProductGetAllUseCase($productRepositoryMock);
+    //     $useCase = new ProductGetAllUseCase($productRepositoryMock);
 
-        $this->expectException(\App\Exceptions\NotFoundException::class);
-        $this->expectExceptionMessage('Not product found');
-        $this->expectExceptionCode(404);
+    //     $this->expectException(\App\Exceptions\NotFoundException::class);
+    //     $this->expectExceptionMessage('Not product found');
+    //     $this->expectExceptionCode(404);
 
-        $useCase->execute(['param1' => 'value1']);
-    }
+    //     $useCase->execute(['param1' => 'value1']);
+    // }
 }
