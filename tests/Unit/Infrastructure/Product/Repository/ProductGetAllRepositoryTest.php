@@ -1,42 +1,29 @@
 <?php
 
-namespace Tests\Unit\Infrastructure\Product\Repository;
-
 use App\Infrastructure\Product\Repository\ProductGetAllRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ProductGetAllRepositoryTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class, RefreshDatabase::class);
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
+test('repository returns products', function () {
+    // Create products
+    Product::factory()->count(10)->create();
 
-    public function test_repository_returns_products()
-    {
-        // Create a product
-        Product::factory()->count(10)->create();
+    // Instantiate the repository
+    $repository = app(ProductGetAllRepository::class);
+    $products = $repository->getAll();
 
-        // Instantiate the repository
-        $repository = app(ProductGetAllRepository::class);
-        $products = $repository->getAll();
+    // Assert to check if the repository returns products
+    expect($products)->not->toBeEmpty()
+        ->toHaveCount(10);
+});
 
-        // Assert to check if the repository returns products
-        $this->assertNotEmpty($products);
-        $this->assertCount(10, $products);
-    }
+test('repository returns empty array', function () {
+    // Instantiate the repository
+    $repository = app(ProductGetAllRepository::class);
+    $products = $repository->getAll();
 
-    public function test_repository_returns_empty_array()
-    {
-        // Instantiate the repository
-        $repository = app(ProductGetAllRepository::class);
-        $products = $repository->getAll();
-
-        // Assert to check if the repository returns an empty array
-        $this->assertEmpty($products);
-    }
-}
+    // Assert to check if the repository returns an empty array
+    expect($products)->toBeEmpty();
+});

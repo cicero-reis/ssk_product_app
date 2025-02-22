@@ -1,41 +1,31 @@
 <?php
 
-namespace Tests\Unit\Infrastructure\Product\Repository;
-
 use App\Infrastructure\Product\Repository\ProductUpdateRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ProductUpdateRepositoryTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class, RefreshDatabase::class);
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
+test('repository updates product', function () {
+    // Instantiate the repository
+    $repository = app(ProductUpdateRepository::class);
+    $product = Product::factory()->create();
 
-    public function test_repository_updates_product()
-    {
-        // Instantiate the repository
-        $repository = app(ProductUpdateRepository::class);
-        $product = Product::factory()->create();
+    // Assert that the product was created
+    expect($product)->not->toBeNull()
+        ->toBeInstanceOf(Product::class);
 
-        // Assert to check if the repository updates a product
-        $this->assertNotEmpty($product);
-        $this->assertInstanceOf(Product::class, $product);
+    // Update the product
+    $productUpdated = $repository->update($product->id, [
+        'name' => 'Product 2',
+        'price' => 200,
+        'description' => 'Description of Product 2',
+    ]);
 
-        $productUpdated = $repository->update($product->id, [
-            'name' => 'Product 2',
-            'price' => 200,
-            'description' => 'Description of Product 2',
-        ]);
-
-        $this->assertNotEmpty($productUpdated);
-        $this->assertInstanceOf(Product::class, $productUpdated);
-        $this->assertEquals('Product 2', $productUpdated->name);
-        $this->assertEquals(200, $productUpdated->price);
-        $this->assertEquals('Description of Product 2', $productUpdated->description);
-    }
-}
+    // Assert that the product was updated successfully
+    expect($productUpdated)->not->toBeNull()
+        ->toBeInstanceOf(Product::class)
+        ->name->toBe('Product 2')
+        ->price->toBe(200)
+        ->description->toBe('Description of Product 2');
+});

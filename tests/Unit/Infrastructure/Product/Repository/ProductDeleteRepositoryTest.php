@@ -1,33 +1,23 @@
 <?php
 
-namespace Tests\Unit\Infrastructure\Product\Repository;
-
 use App\Infrastructure\Product\Repository\ProductDeleteRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ProductDeleteRepositoryTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class, RefreshDatabase::class);
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
+test('repository deletes product', function () {
+    // Instantiate the repository
+    $repository = app(ProductDeleteRepository::class);
+    $product = Product::factory()->create();
 
-    public function test_repository_deletes_product()
-    {
-        // Instantiate the repository
-        $repository = app(ProductDeleteRepository::class);
-        $product = Product::factory()->create();
+    // Assert that the product exists
+    expect($product)->not->toBeNull()
+        ->toBeInstanceOf(Product::class);
 
-        // Assert to check if the repository deletes a product
-        $this->assertNotEmpty($product);
-        $this->assertInstanceOf(Product::class, $product);
+    // Delete the product
+    $repository->delete($product->id);
 
-        $repository->delete($product->id);
-
-        $this->assertEmpty(Product::find($product->id));
-    }
-}
+    // Assert that the product no longer exists
+    expect(Product::find($product->id))->toBeNull();
+});

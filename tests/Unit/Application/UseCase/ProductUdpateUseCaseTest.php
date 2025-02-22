@@ -1,40 +1,23 @@
 <?php
 
-namespace Tests\Unit\Application\UseCase;
-
 use App\Application\UseCase\ProductUpdateUseCase;
 use App\Infrastructure\Product\Contract\IProductUpdateRepository;
-use PHPUnit\Framework\TestCase;
 
-class ProductUpdateUseCaseTest extends TestCase
-{
-    public function test_product_update_use_case()
-    {
-        $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
+it('updates a product', function () {
+    $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
 
-        $productRepositoryMock->expects($this->once())
-            ->method('update')
-            ->with(1, [
-                'name' => 'Product 1',
-                'price' => 100,
-                'description' => 'Description of Product 1',
-                'category_id' => 1,
-                'image_url' => 'https://example.com/image.jpg',
-                'image_filename' => 'image.jpg',
-            ])
-            ->willReturn([
-                'id' => 1,
-                'name' => 'Product 1',
-                'price' => 100,
-                'description' => 'Description of Product 1',
-                'category_id' => 1,
-                'image_url' => 'https://example.com/image.jpg',
-                'image_filename' => 'image.jpg',
-            ]);
-
-        $useCase = new ProductUpdateUseCase($productRepositoryMock);
-
-        $result = $useCase->execute(1, [
+    $productRepositoryMock->expects($this->once())
+        ->method('update')
+        ->with(1, [
+            'name' => 'Product 1',
+            'price' => 100,
+            'description' => 'Description of Product 1',
+            'category_id' => 1,
+            'image_url' => 'https://example.com/image.jpg',
+            'image_filename' => 'image.jpg',
+        ])
+        ->willReturn([
+            'id' => 1,
             'name' => 'Product 1',
             'price' => 100,
             'description' => 'Description of Product 1',
@@ -43,32 +26,40 @@ class ProductUpdateUseCaseTest extends TestCase
             'image_filename' => 'image.jpg',
         ]);
 
-        $this->assertEquals(1, $result['id']);
-    }
+    $useCase = new ProductUpdateUseCase($productRepositoryMock);
 
-    // public function test_product_update_use_case_throws_not_found_exception_when_invalid_id()
-    // {
-    //     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
+    $result = $useCase->execute(1, [
+        'name' => 'Product 1',
+        'price' => 100,
+        'description' => 'Description of Product 1',
+        'category_id' => 1,
+        'image_url' => 'https://example.com/image.jpg',
+        'image_filename' => 'image.jpg',
+    ]);
 
-    //     $useCase = new ProductUpdateUseCase($productRepositoryMock);
+    expect($result['id'])->toBe(1);
+});
 
-    //     $this->expectException(\App\Exceptions\NotFoundException::class);
-    //     $this->expectExceptionMessage('Invalid id');
-    //     $this->expectExceptionCode(400);
+// it('throws not found exception when invalid id', function () {
+//     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
 
-    //     $useCase->execute(0, []);
-    // }
+//     $useCase = new ProductUpdateUseCase($productRepositoryMock);
 
-    // public function test_product_update_use_case_throws_not_found_exception_when_body_is_empty()
-    // {
-    //     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
+//     $this->expectException(\App\Exceptions\NotFoundException::class);
+//     $this->expectExceptionMessage('Invalid id');
+//     $this->expectExceptionCode(400);
 
-    //     $useCase = new ProductUpdateUseCase($productRepositoryMock);
+//     $useCase->execute(0, []);
+// });
 
-    //     $this->expectException(\App\Exceptions\NotFoundException::class);
-    //     $this->expectExceptionMessage('Body is required');
-    //     $this->expectExceptionCode(400);
+// it('throws not found exception when body is empty', function () {
+//     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
 
-    //     $useCase->execute(1, []);
-    // }
-}
+//     $useCase = new ProductUpdateUseCase($productRepositoryMock);
+
+//     $this->expectException(\App\Exceptions\NotFoundException::class);
+//     $this->expectExceptionMessage('Body is required');
+//     $this->expectExceptionCode(400);
+
+//     $useCase->execute(1, []);
+// });

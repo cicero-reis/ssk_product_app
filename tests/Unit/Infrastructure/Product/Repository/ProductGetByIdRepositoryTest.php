@@ -1,35 +1,25 @@
 <?php
 
-namespace Tests\Unit\Infrastructure\Product\Repository;
-
 use App\Infrastructure\Product\Repository\ProductGetByIdRepository;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ProductGetByIdRepositoryTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class, RefreshDatabase::class);
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
+test('repository gets product by id', function () {
+    // Instantiate the repository
+    $repository = app(ProductGetByIdRepository::class);
+    $product = Product::factory()->create();
 
-    public function test_repository_gets_product_by_id()
-    {
-        // Instantiate the repository
-        $repository = app(ProductGetByIdRepository::class);
-        $product = Product::factory()->create();
+    // Assert that the product was created
+    expect($product)->not->toBeNull()
+        ->toBeInstanceOf(Product::class);
 
-        // Assert to check if the repository gets a product by id
-        $this->assertNotEmpty($product);
-        $this->assertInstanceOf(Product::class, $product);
+    // Get product by ID
+    $productById = $repository->getById($product->id);
 
-        $productById = $repository->getById($product->id);
-
-        $this->assertNotEmpty($productById);
-        $this->assertInstanceOf(Product::class, $productById);
-        $this->assertEquals($product->id, $productById->id);
-    }
-}
+    // Assert that the retrieved product matches the created one
+    expect($productById)->not->toBeNull()
+        ->toBeInstanceOf(Product::class)
+        ->id->toBe($product->id);
+});
