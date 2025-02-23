@@ -13,6 +13,11 @@ abstract class ProductCreateAbstractRepository
 
     public function create(array $body = [])
     {
-        return $this->model->create($body);
+        return $this->model->create([
+            'name' => $body['name'],
+            'description' => $body['description'],
+            'price' => $body['price'],
+            'category_id' => $body['category_id'],
+        ]);
     }
 }

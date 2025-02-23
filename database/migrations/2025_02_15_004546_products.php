@@ -17,8 +17,8 @@ return new class() extends Migration
             $table->text('description')->nullable(false);
             $table->decimal('price', 8, 2)->nullable(false);
             $table->integer('category_id')->nullable(false);
-            $table->string('image_url')->nullable(false);
-            $table->string('image_filename')->nullable(false);
+            $table->string('image_url')->nullable(true);
+            $table->string('image_filename')->nullable(true);
             $table->timestamps();
             $table->softDeletes();
         });

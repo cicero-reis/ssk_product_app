@@ -20,6 +20,7 @@ test('repository updates product', function () {
         'name' => 'Product 2',
         'price' => 200,
         'description' => 'Description of Product 2',
+        'category_id' => 1,
     ]);
 
     // Assert that the product was updated successfully

@@ -9,20 +9,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ValidateResource
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        $validRoutes = collect(Route::getRoutes())->map(fn ($route) => trim($route->uri(), '/'));
-        $requestedRoute = trim($request->path(), '/');
+        // Obtém todas as rotas registradas e converte para um formato comparável
+        $validRoutes = collect(Route::getRoutes())->map(function ($route) {
+            return preg_replace('/\{[^}]+\}/', '*', trim($route->uri(), '/'));
+        });
+
+        // Converte a URL solicitada para o mesmo formato (substituindo IDs e outros parâmetros por '*')
+        $requestedRoute = preg_replace('/\/\d+/', '/*', trim($request->path(), '/'));
 
         if (! $validRoutes->contains($requestedRoute)) {
             return response()->json([
                 'error' => 'Recurso não encontrado.',
-                'message' => "O recurso '$requestedRoute' não é válido.",
+                'message' => "O recurso '$requestedRoute' não é válido. Tente um dos seguintes: ".$validRoutes->implode(', '),
             ], 404);
         }
 

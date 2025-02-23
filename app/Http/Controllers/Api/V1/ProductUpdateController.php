@@ -25,7 +25,7 @@ class ProductUpdateController extends Controller
 
             $product = $this->productUseCase->execute($id, $body);
 
-            if (empty($product)) {
+            if (! $product->id) {
                 throw new NotFoundException('Product not found', 404);
             }
 

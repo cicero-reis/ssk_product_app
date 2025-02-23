@@ -16,7 +16,12 @@ abstract class ProductUpdateAbstractRepository
         $model = $this->model->find($id);
 
         if ($model) {
-            $model->update($body);
+            $model->update([
+                'name' => $body['name'],
+                'description' => $body['description'],
+                'price' => $body['price'],
+                'category_id' => $body['category_id'],
+            ]);
         }
 
         return $this->model->find($id);

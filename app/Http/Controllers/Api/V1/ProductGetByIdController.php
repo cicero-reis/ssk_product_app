@@ -27,7 +27,7 @@ class ProductGetByIdController extends Controller
 
             $product = $this->productUseCase->execute($id);
 
-            if (empty($products)) {
+            if (! $product->id) {
                 throw new NotFoundException('Not product found', 404);
             }
 

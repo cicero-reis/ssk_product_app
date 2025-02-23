@@ -16,11 +16,9 @@ test('repository creates product', function () {
 
     $product = $repository->create([
         'name' => 'Product 1',
-        'price' => 100,
         'description' => 'Description of Product 1',
+        'price' => 100,
         'category_id' => 1,
-        'image_url' => 'https://example.com/image.jpg',
-        'image_filename' => 'image.jpg',
     ]);
 
     // Assert to check if the repository creates a product
@@ -28,5 +26,6 @@ test('repository creates product', function () {
         ->toBeInstanceOf(Product::class)
         ->name->toBe('Product 1')
         ->price->toBe(100)
-        ->description->toBe('Description of Product 1');
+        ->description->toBe('Description of Product 1')
+        ->category_id->toBe(1);
 });
