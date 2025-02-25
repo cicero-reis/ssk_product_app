@@ -11,6 +11,7 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'id',
         'name',
         'description',
         'price',
@@ -19,5 +20,5 @@ class Product extends Model
         'image_filename',
     ];
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 }

@@ -21,13 +21,9 @@ class ProductGetByIdController extends Controller
     {
         try {
 
-            if (! is_numeric($id) || $id <= 0) {
-                throw new NotFoundException('Id invalide', 400);
-            }
-
             $product = $this->productUseCase->execute($id);
 
-            if (! $product->id) {
+            if (is_null($product)) {
                 throw new NotFoundException('Not product found', 404);
             }
 

@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Carbon;
 
 class ProductResource extends JsonResource
 {
@@ -23,7 +22,7 @@ class ProductResource extends JsonResource
             'category_id' => $this->category_id,
             'image_filename' => $this->image_filename,
             'image_url' => $this->image_url,
-            'created_at' => Carbon::createFromDate($this->created_at)->format('d/m/Y H:i:s'),
+            'created_at' => $this->created_at,
         ];
     }
 }

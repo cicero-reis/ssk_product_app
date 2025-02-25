@@ -24,12 +24,12 @@ class ProductCreateController extends Controller
 
             $product = $this->productUseCase->execute($body);
 
-            return ProductResource::collection([$product]);
-
-            return response()->json($product, 201);
+            return response()->json([
+                'data' => new ProductResource($product),
+            ], 201);
 
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+            return response()->json(['message' => 'Product'], $e->getCode());
         }
     }
 }
