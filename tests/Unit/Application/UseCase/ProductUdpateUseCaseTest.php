@@ -12,18 +12,14 @@ it('updates a product', function () {
             'name' => 'Product 1',
             'price' => 100,
             'description' => 'Description of Product 1',
-            'category_id' => 1,
-            'image_url' => 'https://example.com/image.jpg',
-            'image_filename' => 'image.jpg',
+            'category_id' => 1
         ])
         ->willReturn([
             'id' => 1,
             'name' => 'Product 1',
             'price' => 100,
             'description' => 'Description of Product 1',
-            'category_id' => 1,
-            'image_url' => 'https://example.com/image.jpg',
-            'image_filename' => 'image.jpg',
+            'category_id' => 1
         ]);
 
     $useCase = new ProductUpdateUseCase($productRepositoryMock);
@@ -32,34 +28,8 @@ it('updates a product', function () {
         'name' => 'Product 1',
         'price' => 100,
         'description' => 'Description of Product 1',
-        'category_id' => 1,
-        'image_url' => 'https://example.com/image.jpg',
-        'image_filename' => 'image.jpg',
+        'category_id' => 1
     ]);
 
     expect($result['id'])->toBe(1);
 });
-
-// it('throws not found exception when invalid id', function () {
-//     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
-
-//     $useCase = new ProductUpdateUseCase($productRepositoryMock);
-
-//     $this->expectException(\App\Exceptions\NotFoundException::class);
-//     $this->expectExceptionMessage('Invalid id');
-//     $this->expectExceptionCode(400);
-
-//     $useCase->execute(0, []);
-// });
-
-// it('throws not found exception when body is empty', function () {
-//     $productRepositoryMock = $this->createMock(IProductUpdateRepository::class);
-
-//     $useCase = new ProductUpdateUseCase($productRepositoryMock);
-
-//     $this->expectException(\App\Exceptions\NotFoundException::class);
-//     $this->expectExceptionMessage('Body is required');
-//     $this->expectExceptionCode(400);
-
-//     $useCase->execute(1, []);
-// });

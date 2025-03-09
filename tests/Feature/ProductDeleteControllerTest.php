@@ -33,7 +33,7 @@ describe('ProductDeleteController', function () {
 
         $reponse = [
             'code' => 404,
-            'alertInfo' => 'danger',
+            'alertInfo' => 'warning',
             'message' => 'Product not found',
         ];
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Application\Dtos\ProductCreateDto;
 use App\Application\UseCase\Contract\IProductCreateUseCase;
 use App\Http\Resources\ProductResource;
 use Carbon\Carbon;
@@ -20,23 +21,25 @@ describe('ProductCreateController', function () {
 
         $data = [
             'name' => 'Product 1',
+            'price' => 100.0,
             'description' => 'Description of Product 1',
-            'price' => 100,
             'category_id' => 1,
         ];
 
         $createdAt = Carbon::now()->toIso8601String();
 
+        $mockProduct = (object) array_merge($data, [
+            'id' => 1,
+            'original_name' => null,
+            'stored_filename' => null,
+            'created_at' => $createdAt,
+        ]);
+
         $this->productUseCase
             ->shouldReceive('execute')
             ->once()
-            ->with($data)
-            ->andReturn((object) array_merge($data, [
-                'id' => 1,
-                'image_filename' => null,
-                'image_url' => null,
-                'created_at' => $createdAt,
-            ]));
+            ->with(Mockery::on(fn($arg) => $arg instanceof ProductCreateDto))
+            ->andReturn($mockProduct);
 
         $response = postJson(route('api.v1.products.create'), $data);
 
@@ -48,8 +51,8 @@ describe('ProductCreateController', function () {
             'description' => 'Description of Product 1',
             'price' => 100,
             'category_id' => 1,
-            'image_filename' => null,
-            'image_url' => null,
+            'original_name' => null,
+            'stored_filename' => null,
             'created_at' => $createdAt,
         ]))->response()->getData(true));
     });
@@ -67,5 +70,4 @@ describe('ProductCreateController', function () {
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['name', 'price', 'description', 'category_id']);
     });
-
 });

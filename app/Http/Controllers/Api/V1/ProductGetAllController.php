@@ -7,7 +7,9 @@ use App\Exceptions\MensagemDetails;
 use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 class ProductGetAllController extends Controller
 {
@@ -18,7 +20,7 @@ class ProductGetAllController extends Controller
         $this->productUseCase = $productUseCase;
     }
 
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): JsonResponse
     {
         try {
             $body = $request->all();
@@ -26,25 +28,19 @@ class ProductGetAllController extends Controller
             $products = $this->productUseCase->execute($body);
 
             if (empty($products)) {
-                throw new NotFoundException('Not product found', 404);
+                throw new NotFoundException('Product not found', 404);
             }
 
             $products = ProductResource::collection($products);
 
-            return response()->json($products, 200);
-
+            return response()->json(['data' => $products], 200);
         } catch (NotFoundException $e) {
 
-            $erroDetails = new MensagemDetails(
-                $e->getMessage(),
-                'danger',
-                $e->getCode()
-            );
+            $erroDetails = new MensagemDetails($e->getMessage(), 'warning', $e->getCode());
 
-            return response()->json($erroDetails, $e->getCode());
-
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+            return response()->json($erroDetails->toArray(), 404);
+        } catch (Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);
         }
     }
 }

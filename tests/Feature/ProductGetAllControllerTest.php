@@ -1,6 +1,6 @@
 <?php
 
-use App\Application\UseCase\Contract\IProductGetByIdUseCase;
+use App\Application\UseCase\Contract\IProductGetAllUseCase;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -10,21 +10,20 @@ uses(RefreshDatabase::class);
 
 beforeEach(function () {
     $this->product = Product::factory()->create();
-    $this->productUseCase = Mockery::mock(IProductGetByIdUseCase::class);
-    $this->app->instance(IProductGetByIdUseCase::class, $this->productUseCase);
+    $this->productUseCase = Mockery::mock(IProductGetAllUseCase::class);
+    $this->app->instance(IProductGetAllUseCase::class, $this->productUseCase);
 });
 
-describe('ProductGetByIdController', function () {
+describe('ProductGetAllControllerTest', function () {
 
     it('should return a product successfully', function () {
 
         $this->productUseCase
             ->shouldReceive('execute')
             ->once()
-            ->with($this->product->id)
-            ->andReturn($this->product);
+            ->andReturn([$this->product]);
 
-        $response = getJson(route('api.v1.products.get', ['id' => $this->product->id]));
+        $response = getJson(route('api.v1.products.all'));
 
         $response->assertStatus(200);
     });
@@ -32,7 +31,7 @@ describe('ProductGetByIdController', function () {
     it('should return error for invalid product', function () {
 
         $reponse = [
-            'message' => 'Not product found',
+            'message' => 'Product not found',
             'alertInfo' => 'warning',
             'code' => 404,
         ];
@@ -40,10 +39,9 @@ describe('ProductGetByIdController', function () {
         $this->productUseCase
             ->shouldReceive('execute')
             ->once()
-            ->with(2)
-            ->andReturn(null);
+            ->andReturn([]);
 
-        $response = getJson(route('api.v1.products.get', ['id' => 2]));
+        $response = getJson(route('api.v1.products.all'));
 
         $response->assertStatus(404);
 

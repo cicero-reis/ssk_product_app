@@ -14,12 +14,14 @@ test('repository creates product', function () {
     // Instantiate the repository
     $repository = app(ProductCreateRepository::class);
 
-    $product = $repository->create([
+    $data = [
         'name' => 'Product 1',
         'description' => 'Description of Product 1',
         'price' => 100,
         'category_id' => 1,
-    ]);
+    ];
+
+    $product = $repository->create($data);
 
     // Assert to check if the repository creates a product
     expect($product)->not->toBeNull()

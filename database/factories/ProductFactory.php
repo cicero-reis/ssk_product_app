@@ -24,9 +24,7 @@ class ProductFactory extends Factory
             'name' => fake()->unique()->word(),
             'description' => fake()->text(),
             'price' => fake()->randomFloat(2, 0, 100),
-            'category_id' => fn () => 1, // Garante que será tratado corretamente
-            'image_url' => fake()->imageUrl(),
-            'image_filename' => fake()->word(),
+            'category_id' => fn() => 1
         ];
     }
 }

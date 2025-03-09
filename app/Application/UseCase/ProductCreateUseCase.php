@@ -2,6 +2,7 @@
 
 namespace App\Application\UseCase;
 
+use App\Application\Dtos\ProductCreateDto;
 use App\Application\UseCase\Contract\IProductCreateUseCase;
 use App\Infrastructure\Product\Contract\IProductCreateRepository;
 
@@ -14,8 +15,8 @@ class ProductCreateUseCase implements IProductCreateUseCase
         $this->productRepository = $productRepository;
     }
 
-    public function execute(array $body)
+    public function execute(ProductCreateDto $dto)
     {
-        return $this->productRepository->create($body);
+        return $this->productRepository->create($dto->toArray());
     }
 }

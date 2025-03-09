@@ -2,7 +2,9 @@
 
 namespace App\Application\UseCase\Contract;
 
+use App\Application\Dtos\ProductCreateDto;
+
 interface IProductCreateUseCase
 {
-    public function execute(array $body);
+    public function execute(ProductCreateDto $dto);
 }
