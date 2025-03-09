@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\ProductDeleteController;
 use App\Http\Controllers\Api\V1\ProductGetAllController;
 use App\Http\Controllers\Api\V1\ProductGetByIdController;
 use App\Http\Controllers\Api\V1\ProductUpdateController;
+use App\Http\Controllers\Api\V1\ProductUploadFileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/products', ProductCreateController::class)->name('api.v1.products.create');
     Route::put('/products/{id}', ProductUpdateController::class);
     Route::delete('/products/{id}', ProductDeleteController::class)->name('api.v1.products.delete');
+    Route::post('/products/{id}/upload', ProductUploadFileController::class)->name('api.v1.products.upload');
 });
 
 Route::get('/user', function (Request $request) {

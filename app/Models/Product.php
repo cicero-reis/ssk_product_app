@@ -16,8 +16,8 @@ class Product extends Model
         'description',
         'price',
         'category_id',
-        'image_url',
-        'image_filename',
+        'original_name',
+        'stored_filename',
     ];
 
     // protected $guarded = ['id'];

@@ -4,7 +4,8 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "format": "./vendor/bin/pint"
+        "format": "./vendor/bin/pint",
+        "test": "./vendor/bin/pest"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
