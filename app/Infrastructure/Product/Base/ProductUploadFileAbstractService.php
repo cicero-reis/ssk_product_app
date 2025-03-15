@@ -3,8 +3,10 @@
 namespace App\Infrastructure\Product\Base;
 
 use App\Events\ProductImageUploadedEvent;
+use App\Exceptions\NotFoundException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 abstract class ProductUploadFileAbstractService
 {
@@ -31,6 +33,7 @@ abstract class ProductUploadFileAbstractService
         ];
 
         try {
+
             $response = Http::post("$this->apiUrl/s3/upload", $payLoad);
 
             if ($response->successful()) {
@@ -39,15 +42,15 @@ abstract class ProductUploadFileAbstractService
 
                 return ['fileName' => $originalName];
             }
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             Log::error('Failed to upload image', [
                 'fileName' => $originalName,
                 'message' => $e->getMessage()
             ]);
 
             return [
-                'error' => 'Failed to upload image',
-                'message' => $e->getMessage()
+                'error' => true,
+                'message' => 'Failed to upload image'
             ];
         }
     }

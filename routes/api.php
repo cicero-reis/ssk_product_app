@@ -13,7 +13,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/products', ProductGetAllController::class)->name('api.v1.products.all');;
     Route::get('/products/{id}', ProductGetByIdController::class)->name('api.v1.products.get');
     Route::post('/products', ProductCreateController::class)->name('api.v1.products.create');
-    Route::put('/products/{id}', ProductUpdateController::class);
+    Route::put('/products/{id}', ProductUpdateController::class)->name('api.v1.products.update');;
     Route::delete('/products/{id}', ProductDeleteController::class)->name('api.v1.products.delete');
     Route::post('/products/{id}/upload', ProductUploadFileController::class)->name('api.v1.products.upload');
 });

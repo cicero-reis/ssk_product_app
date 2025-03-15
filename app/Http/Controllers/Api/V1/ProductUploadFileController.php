@@ -9,6 +9,7 @@ use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
 use App\Infrastructure\Product\Service\S3UploadService as ServiceS3UploadService;
 use Illuminate\Http\Request;
+use Throwable;
 
 class ProductUploadFileController extends Controller
 {
@@ -41,14 +42,10 @@ class ProductUploadFileController extends Controller
 
             return response()->json(['message' => 'Image uploaded', 'data' => $response], 201);
         } catch (NotFoundException $e) {
-            $errorDetails = new MensagemDetails(
-                $e->getMessage(),
-                'danger',
-                $e->getCode()
-            );
-            return response()->json($errorDetails, $e->getCode());
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e], 500);
+            $erroDetails = new MensagemDetails($e->getMessage(), 'warning', $e->getCode());
+            return response()->json($erroDetails->toArray(), $e->getCode() ?: 500);
+        } catch (Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);
         }
     }
 }

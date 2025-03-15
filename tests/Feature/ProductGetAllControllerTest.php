@@ -9,7 +9,7 @@ use function Pest\Laravel\getJson;
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->product = Product::factory()->create();
+    $this->product = Product::factory(5)->create();
     $this->productUseCase = Mockery::mock(IProductGetAllUseCase::class);
     $this->app->instance(IProductGetAllUseCase::class, $this->productUseCase);
 });
@@ -21,11 +21,13 @@ describe('ProductGetAllControllerTest', function () {
         $this->productUseCase
             ->shouldReceive('execute')
             ->once()
-            ->andReturn([$this->product]);
+            ->andReturn($this->product);
 
         $response = getJson(route('api.v1.products.all'));
 
         $response->assertStatus(200);
+
+        $response->assertJsonCount(5, 'data');
     });
 
     it('should return error for invalid product', function () {

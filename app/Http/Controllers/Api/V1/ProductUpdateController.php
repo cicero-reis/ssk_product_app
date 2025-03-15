@@ -7,6 +7,7 @@ use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Http\Resources\ProductResource;
+use Throwable;
 
 class ProductUpdateController extends Controller
 {
@@ -30,9 +31,8 @@ class ProductUpdateController extends Controller
             }
 
             return ProductResource::collection([$product]);
-
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+        } catch (Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);
         }
     }
 }
