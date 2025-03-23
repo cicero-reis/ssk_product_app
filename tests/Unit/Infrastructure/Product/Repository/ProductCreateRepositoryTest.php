@@ -18,6 +18,7 @@ test('repository creates product', function () {
         'name' => 'Product 1',
         'description' => 'Description of Product 1',
         'price' => 100,
+        'client_id' => 'client_id',
         'category_id' => 1,
     ];
 
@@ -29,5 +30,6 @@ test('repository creates product', function () {
         ->name->toBe('Product 1')
         ->price->toBe(100)
         ->description->toBe('Description of Product 1')
+        ->client_id->toBe('client_id')
         ->category_id->toBe(1);
 });

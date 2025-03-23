@@ -15,6 +15,7 @@ class Product extends Model
         'name',
         'description',
         'price',
+        'client_id',
         'category_id',
         'original_name',
         'stored_filename',

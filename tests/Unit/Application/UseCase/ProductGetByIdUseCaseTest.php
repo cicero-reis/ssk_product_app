@@ -14,6 +14,7 @@ it('tests product get by id use case', function () {
             'name' => 'Product 1',
             'price' => 100,
             'description' => 'Description of Product 1',
+            'client_id' => 'client_id',
             'category_id' => 1,
         ]);
 

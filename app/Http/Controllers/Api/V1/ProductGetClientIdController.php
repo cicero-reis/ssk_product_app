@@ -2,43 +2,40 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Application\UseCase\Contract\IProductGetAllUseCase;
+use App\Application\UseCase\Contract\IProductGetClientIdUseCase;
 use App\Exceptions\MensagemDetails;
 use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Throwable;
 
-class ProductGetAllController extends Controller
+class ProductGetClientIdController extends Controller
 {
     private $productUseCase;
 
-    public function __construct(IProductGetAllUseCase $productUseCase)
+    public function __construct(IProductGetClientIdUseCase $productUseCase)
     {
         $this->productUseCase = $productUseCase;
     }
 
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(int $id): JsonResponse
     {
         try {
-            
-            $body = $request->all();
 
-            $products = $this->productUseCase->execute($body);
+            $products = $this->productUseCase->execute($id);
 
-            if (empty($products)) {
-                throw new NotFoundException('Product not found', 404);
+            if (is_null($products)) {
+                throw new NotFoundException('Not client found', 404);
             }
 
             $products = ProductResource::collection($products);
 
             return response()->json(['data' => $products], 200);
+
         } catch (NotFoundException $e) {
 
-            $erroDetails = new MensagemDetails($e->getMessage(), 'warning', $e->getCode());
-
+            $erroDetails = new MensagemDetails($e->getMessage(), 'warning', 404);
             return response()->json($erroDetails->toArray(), 404);
         } catch (Throwable $e) {
             return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);

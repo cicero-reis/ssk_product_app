@@ -20,6 +20,7 @@ test('repository updates product', function () {
         'name' => 'Product 2',
         'price' => 200,
         'description' => 'Description of Product 2',
+        'client_id' => 'client_id',
         'category_id' => 1,
     ]);
 

@@ -23,6 +23,7 @@ describe('ProductCreateController', function () {
             'name' => 'Product 1',
             'price' => 100.0,
             'description' => 'Description of Product 1',
+            'client_id' => 'clientid',
             'category_id' => 1,
         ];
 
@@ -50,6 +51,7 @@ describe('ProductCreateController', function () {
             'name' => 'Product 1',
             'description' => 'Description of Product 1',
             'price' => 100,
+            'client_id' => 'clientid',
             'category_id' => 1,
             'original_name' => null,
             'stored_filename' => null,
@@ -62,12 +64,13 @@ describe('ProductCreateController', function () {
             'name' => '',
             'description' => '',
             'price' => '',
+            'client_id' => '',
             'category_id' => '',
         ];
 
         $response = postJson(route('api.v1.products.create'), $invalidData);
 
         $response->assertStatus(422);
-        $response->assertJsonValidationErrors(['name', 'price', 'description', 'category_id']);
+        $response->assertJsonValidationErrors(['name', 'price', 'description', 'client_id', 'category_id']);
     });
 });

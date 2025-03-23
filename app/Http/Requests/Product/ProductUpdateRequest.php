@@ -30,6 +30,7 @@ class ProductUpdateRequest extends FormRequest
             ],
             'price' => 'required|numeric',
             'description' => 'required|string',
+            'client_id' => 'required|integer',
             'category_id' => 'required|integer',
         ];
     }

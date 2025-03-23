@@ -16,6 +16,7 @@ return new class() extends Migration
             $table->string('name')->unique();
             $table->text('description');
             $table->decimal('price', 8, 2);
+            $table->string('client_id');
             $table->integer('category_id');
             $table->string('original_name')->nullable();
             $table->string('stored_filename')->nullable();
