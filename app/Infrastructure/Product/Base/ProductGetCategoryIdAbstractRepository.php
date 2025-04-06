@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Product\Base;
 
-abstract class ProductGetClientIdAbstractRepository
+abstract class ProductGetCategoryIdAbstractRepository
 {
     protected $model;
 
@@ -11,8 +11,8 @@ abstract class ProductGetClientIdAbstractRepository
         $this->model = app($this->model);
     }
 
-    public function getClientId(string $clientId)
+    public function getCategoryId(int $categoryId)
     {
-        return $this->model->where('client_id', $clientId)->get();
+        return $this->model->where('category_id', $categoryId)->get();
     }
 }

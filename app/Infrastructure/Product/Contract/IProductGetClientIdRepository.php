@@ -4,5 +4,5 @@ namespace App\Infrastructure\Product\Contract;
 
 interface IProductGetClientIdRepository
 {
-    public function getClientId(int $id);
+    public function getClientId(string $id);
 }

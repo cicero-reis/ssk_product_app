@@ -10,6 +10,7 @@ use App\Application\UseCase\Contract\IProductGetClientIdUseCase;
 use App\Application\UseCase\Contract\IProductUpdateUseCase;
 use App\Application\UseCase\Contract\IProductUploadFileServiceUseCase;
 use App\Application\UseCase\Contract\IProductUpdateFileNameUseCase;
+use App\Application\UseCase\Contract\IProductGetCategoryIdUseCase;
 use App\Application\UseCase\ProductCreateUseCase;
 use App\Application\UseCase\ProductDeleteUseCase;
 use App\Application\UseCase\ProductGetAllUseCase;
@@ -18,6 +19,7 @@ use App\Application\UseCase\ProductGetClientIdUseCase;
 use App\Application\UseCase\ProductUpdateUseCase;
 use App\Application\UseCase\ProductUpdateFileNameUseCase;
 use App\Application\UseCase\ProductUploadFileServiceUseCase;
+use App\Application\UseCase\ProductGetCategoryIdUseCase;
 use App\Infrastructure\Product\Contract\IProductCreateRepository;
 use App\Infrastructure\Product\Contract\IProductDeleteRepository;
 use App\Infrastructure\Product\Contract\IProductGetAllRepository;
@@ -26,12 +28,14 @@ use App\Infrastructure\Product\Contract\IProductGetClientIdRepository;
 use App\Infrastructure\Product\Contract\IProductUpdateRepository;
 use App\Infrastructure\Product\Contract\IProductUploadFileService;
 use App\Infrastructure\Product\Contract\IProductUpdateFileNameRepository;
+use App\Infrastructure\Product\Contract\IProductGetCategoryIdRepository;
 use App\Infrastructure\Product\Repository\ProductCreateRepository;
 use App\Infrastructure\Product\Repository\ProductDeleteRepository;
 use App\Infrastructure\Product\Repository\ProductGetAllRepository;
 use App\Infrastructure\Product\Repository\ProductGetByIdRepository;
 use App\Infrastructure\Product\Repository\ProductGetClientIdRepository;
 use App\Infrastructure\Product\Repository\ProductUpdateRepository;
+use App\Infrastructure\Product\Repository\ProductGetCategoryIdRepository;
 use App\Infrastructure\Product\Service\ProductUploadFileService;
 use App\Infrastructure\Product\Repository\ProductUpdateFileNameRepository;
 use Illuminate\Support\ServiceProvider;
@@ -51,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(IProductGetClientIdRepository::class, ProductGetClientIdRepository::class);
         $this->app->singleton(IProductUploadFileService::class, ProductUploadFileService::class);
         $this->app->singleton(IProductUpdateFileNameRepository::class, ProductUpdateFileNameRepository::class);
+        $this->app->singleton(IProductGetCategoryIdRepository::class, ProductGetCategoryIdRepository::class);
         
         $this->app->singleton(IProductGetAllUseCase::class, ProductGetAllUseCase::class);
         $this->app->singleton(IProductGetByIdUseCase::class, ProductGetByIdUseCase::class);
@@ -60,6 +65,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(IProductGetClientIdUseCase::class, ProductGetClientIdUseCase::class);
         $this->app->singleton(IProductUpdateFileNameUseCase::class, ProductUpdateFileNameUseCase::class);
         $this->app->singleton(IProductUploadFileServiceUseCase::class, ProductUploadFileServiceUseCase::class);
+        $this->app->singleton(IProductGetCategoryIdUseCase::class, ProductGetCategoryIdUseCase::class);
     }
 
     /**

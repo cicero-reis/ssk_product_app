@@ -1,0 +1,15 @@
+# Ignorar arquivos de configuração locais
+.env.local
+.env.*.local
+
+# Ignorar diretórios desnecessários
+node_modules
+vendor
+storage/logs
+storage/framework
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+Dockerfile

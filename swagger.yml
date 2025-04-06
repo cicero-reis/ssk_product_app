@@ -1,0 +1,280 @@
+openapi: 3.0.0
+info:
+  title: API de Produtos
+  version: 1.0.0
+  description: Documentação dos endpoints da API de Produtos
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/v1/products:
+    get:
+      tags:
+        - Produtos V1
+      summary: Listar todos os produtos
+      responses:
+        '200':
+          description: Lista de produtos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+    post:
+      tags:
+        - Produtos V1
+      summary: Criar um novo produto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Big Mac 01
+                description:
+                  type: string
+                  example: Lorem Ipsum...
+                price:
+                  type: string
+                  example: "5.00"
+                client_id:
+                  type: string
+                  example: 67df66d03359ef45ee087872
+                category_id:
+                  type: integer
+                  example: 1
+                original_name:
+                  type: string
+                  example: big-mac.png
+                stored_filename:
+                  type: string
+                  example: product_1_1743853447_big-mac.png
+      responses:
+        '201':
+          description: Produto criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+  /api/v1/products/{id}:
+    get:
+      tags:
+        - Produtos V1
+      summary: Obter um produto específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do produto
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Produto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Produto não encontrado
+    put:
+      tags:
+        - Produtos V1
+      summary: Atualizar um produto específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do produto
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Big Mac 01 Updated
+                description:
+                  type: string
+                  example: Lorem Ipsum Updated...
+                price:
+                  type: string
+                  example: "6.00"
+                client_id:
+                  type: string
+                  example: 67df66d03359ef45ee087872
+                category_id:
+                  type: integer
+                  example: 1
+                original_name:
+                  type: string
+                  example: big-mac-updated.png
+                stored_filename:
+                  type: string
+                  example: product_1_1743853447_big-mac-updated.png
+      responses:
+        '200':
+          description: Produto atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Produto não encontrado
+    delete:
+      tags:
+        - Produtos V1
+      summary: Deletar um produto específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do produto a ser deletado
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '204':
+          description: Produto deletado com sucesso          
+    post:
+      tags:
+        - Produtos V1
+      summary: Fazer upload de imagem de produto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do produto
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Imagem enviada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Upload realizado com sucesso
+                  product:
+                    $ref: '#/components/schemas/Product'
+        '400':
+          description: Falha no upload
+
+  /api/v2/products/{categoryId}/category:
+    get:
+      tags:
+        - Produtos v2
+      summary: Listar produtos por categoria
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          description: ID da categoria
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: Lista de produtos da categoria
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+        '404':
+          description: Categoria não encontrada
+
+  /api/v2/products/{id}/client:
+    get:
+      tags:
+        - Produtos v2
+      summary: Obter produtos pelo ID do cliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do cliente
+          schema:
+            type: string
+            example: 67df66d03359ef45ee087872
+      responses:
+        '200':
+          description: Lista de produtos do cliente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+        '404':
+          description: Cliente não encontrado  
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Big Mac 01
+        description:
+          type: string
+          example: Lorem Ipsum...
+        price:
+          type: string
+          example: "5.00"
+        client_id:
+          type: string
+          example: 67df66d03359ef45ee087872
+        category_id:
+          type: integer
+          example: 1
+        original_name:
+          type: string
+          example: big-mac.png
+        stored_filename:
+          type: string
+          example: product_1_1743853447_big-mac.png
+        created_at:
+          type: string
+          format: date-time
+          example: 2025-04-05T11:40:23.000000Z

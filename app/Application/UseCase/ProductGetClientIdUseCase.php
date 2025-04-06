@@ -14,7 +14,7 @@ class ProductGetClientIdUseCase implements IProductGetClientIdUseCase
         $this->productRepository = $productRepository;
     }
 
-    public function execute(int $id)
+    public function execute(string $id)
     {
         return $this->productRepository->getClientId($id);
     }
