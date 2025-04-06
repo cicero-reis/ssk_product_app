@@ -39,7 +39,7 @@ describe('ProductCreateController', function () {
         $this->productUseCase
             ->shouldReceive('execute')
             ->once()
-            ->with(Mockery::on(fn($arg) => $arg instanceof ProductCreateDto))
+            ->with(Mockery::on(fn ($arg) => $arg instanceof ProductCreateDto))
             ->andReturn($mockProduct);
 
         $response = postJson(route('api.v1.products.create'), $data);

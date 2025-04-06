@@ -13,6 +13,7 @@ class ProductImageUploadedListener
     {
         $this->productUpdateFileNameUseCase = $productUpdateFileNameUseCase;
     }
+
     /**
      * Handle the event.
      */

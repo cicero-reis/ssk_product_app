@@ -6,7 +6,6 @@ use App\Application\UseCase\Contract\IProductDeleteUseCase;
 use App\Exceptions\MensagemDetails;
 use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
-use Exception;
 use Illuminate\Http\JsonResponse;
 use Throwable;
 
@@ -37,6 +36,7 @@ class ProductDeleteController extends Controller
         } catch (NotFoundException $e) {
 
             $erroDetails = new MensagemDetails($e->getMessage(), 'warning', 404);
+
             return response()->json($erroDetails->toArray(), 404);
         } catch (Throwable $e) {
             return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);

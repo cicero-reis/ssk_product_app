@@ -34,6 +34,7 @@ class ProductCreateController extends Controller
             ], 201);
         } catch (NotFoundException $e) {
             $mensagem = new MensagemDetails($e->getMessage(), 'warning', 404);
+
             return response()->json($mensagem->toArray(), 404);
         } catch (Throwable $e) {
             return response()->json([

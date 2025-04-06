@@ -12,7 +12,9 @@ class ProductImageUploadedEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public int $productId;
+
     public string $originalName;
+
     public string $storedFileName;
 
     /**

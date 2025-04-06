@@ -5,7 +5,9 @@ namespace App\Exceptions;
 class MensagemDetails
 {
     private int $code;
+
     private string $alertInfo;
+
     private string $message;
 
     public function __construct(string $message = 'Not Found', string $alertInfo = 'danger', int $code = 404)

@@ -24,8 +24,8 @@ class ProductFactory extends Factory
             'name' => fake()->unique()->word(),
             'description' => fake()->text(),
             'price' => fake()->randomFloat(2, 0, 100),
-            'client_id' => fn() => 1,
-            'category_id' => fn() => 1
+            'client_id' => fn () => 1,
+            'category_id' => fn () => 1,
         ];
     }
 }

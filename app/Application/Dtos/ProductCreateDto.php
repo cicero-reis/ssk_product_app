@@ -7,9 +7,13 @@ use App\Http\Requests\Product\ProductStoreRequest;
 class ProductCreateDto
 {
     public string $name;
+
     public float $price;
+
     public string $description;
+
     public string $client_id;
+
     public int $category_id;
 
     public function __construct(string $name, float $price, string $description, string $client_id, int $category_id)

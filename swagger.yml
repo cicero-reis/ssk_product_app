@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: API de Produtos
+  title: Products API
   version: 1.0.0
-  description: Documentação dos endpoints da API Self Service Kiosk Products
+  description: Documentation of the Self Service Kiosk Products API endpoints
 
 servers:
   - url: http://localhost:3000
@@ -11,11 +11,11 @@ paths:
   /api/v1/products:
     get:
       tags:
-        - Produtos V1
-      summary: Listar todos os produtos
+        - Products V1
+      summary: List all products
       responses:
         '200':
-          description: Lista de produtos
+          description: List of products
           content:
             application/json:
               schema:
@@ -27,8 +27,8 @@ paths:
                       $ref: '#/components/schemas/Product'
     post:
       tags:
-        - Produtos V1
-      summary: Criar um novo produto
+        - Products V1
+      summary: Create a new product
       requestBody:
         required: true
         content:
@@ -59,7 +59,7 @@ paths:
                   example: product_1_1743853447_big-mac.png
       responses:
         '201':
-          description: Produto criado com sucesso
+          description: Product successfully created
           content:
             application/json:
               schema:
@@ -68,34 +68,34 @@ paths:
   /api/v1/products/{id}:
     get:
       tags:
-        - Produtos V1
-      summary: Obter um produto específico
+        - Products V1
+      summary: Get a specific product
       parameters:
         - name: id
           in: path
           required: true
-          description: ID do produto
+          description: Product ID
           schema:
             type: integer
             example: 1
       responses:
         '200':
-          description: Produto encontrado
+          description: Product found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Product'
         '404':
-          description: Produto não encontrado
+          description: Product not found
     put:
       tags:
-        - Produtos V1
-      summary: Atualizar um produto específico
+        - Products V1
+      summary: Update a specific product
       parameters:
         - name: id
           in: path
           required: true
-          description: ID do produto
+          description: Product ID
           schema:
             type: integer
             example: 1
@@ -129,37 +129,37 @@ paths:
                   example: product_1_1743853447_big-mac-updated.png
       responses:
         '200':
-          description: Produto atualizado com sucesso
+          description: Product successfully updated
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Product'
         '404':
-          description: Produto não encontrado
+          description: Product not found
     delete:
       tags:
-        - Produtos V1
-      summary: Deletar um produto específico
+        - Products V1
+      summary: Delete a specific product
       parameters:
         - name: id
           in: path
           required: true
-          description: ID do produto a ser deletado
+          description: Product ID to be deleted
           schema:
             type: integer
             example: 1
       responses:
         '204':
-          description: Produto deletado com sucesso          
+          description: Product successfully deleted          
     post:
       tags:
-        - Produtos V1
-      summary: Fazer upload de imagem de produto
+        - Products V1
+      summary: Upload product image
       parameters:
         - name: id
           in: path
           required: true
-          description: ID do produto
+          description: Product ID
           schema:
             type: integer
             example: 1
@@ -175,7 +175,7 @@ paths:
                   format: binary
       responses:
         '200':
-          description: Imagem enviada com sucesso
+          description: Image successfully uploaded
           content:
             application/json:
               schema:
@@ -183,28 +183,28 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Upload realizado com sucesso
+                    example: Upload successful
                   product:
                     $ref: '#/components/schemas/Product'
         '400':
-          description: Falha no upload
+          description: Upload failed
 
   /api/v2/products/{categoryId}/category:
     get:
       tags:
-        - Produtos v2
-      summary: Listar produtos por categoria
+        - Products v2
+      summary: List products by category
       parameters:
         - name: categoryId
           in: path
           required: true
-          description: ID da categoria
+          description: Category ID
           schema:
             type: integer
             example: 1
       responses:
         '200':
-          description: Lista de produtos da categoria
+          description: List of products in the category
           content:
             application/json:
               schema:
@@ -215,24 +215,24 @@ paths:
                     items:
                       $ref: '#/components/schemas/Product'
         '404':
-          description: Categoria não encontrada
+          description: Category not found
 
   /api/v2/products/{id}/client:
     get:
       tags:
-        - Produtos v2
-      summary: Obter produtos pelo ID do cliente
+        - Products v2
+      summary: Get products by client ID
       parameters:
         - name: id
           in: path
           required: true
-          description: ID do cliente
+          description: Client ID
           schema:
             type: string
             example: 67df66d03359ef45ee087872
       responses:
         '200':
-          description: Lista de produtos do cliente
+          description: List of products for the client
           content:
             application/json:
               schema:
@@ -243,7 +243,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Product'
         '404':
-          description: Cliente não encontrado  
+          description: Client not found  
 
 components:
   schemas:

@@ -2,11 +2,12 @@
 
 use App\Application\UseCase\Contract\IProductUploadFileServiceUseCase;
 use App\Models\Product;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
-use function Pest\Laravel\{postJson};
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
+
+use function Pest\Laravel\postJson;
 
 uses(RefreshDatabase::class);
 
@@ -30,13 +31,13 @@ describe('ProductUploadFileTest', function () {
             ->andReturn(['fileName' => 'product_1.jpg']);
 
         $response = postJson(route('api.v1.products.upload', ['id' => $id]), [
-            'image' => $file
+            'image' => $file,
         ]);
 
         $response->assertStatus(201)
             ->assertJson([
                 'message' => 'Image uploaded',
-                'data' => ['fileName' => 'product_1.jpg']
+                'data' => ['fileName' => 'product_1.jpg'],
             ]);
     });
 
@@ -54,7 +55,7 @@ describe('ProductUploadFileTest', function () {
         $file = UploadedFile::fake()->create('document.pdf', 500, 'application/pdf');
 
         $response = postJson(route('api.v1.products.upload', ['id' => $id]), [
-            'image' => $file
+            'image' => $file,
         ]);
 
         $response->assertStatus(422)
@@ -66,11 +67,11 @@ describe('ProductUploadFileTest', function () {
         $file = UploadedFile::fake()->image('product.jpg', 500, 500);
 
         Http::fake([
-            'http://192.168.152.43:3001/s3/upload' => Http::response([], 500)
+            'http://192.168.152.43:3001/s3/upload' => Http::response([], 500),
         ]);
 
         $response = postJson(route('api.v1.products.upload', ['id' => $id]), [
-            'image' => $file
+            'image' => $file,
         ]);
 
         $response->assertStatus(500);

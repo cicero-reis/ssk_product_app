@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Application\Service\S3UploadService;
 use App\Application\UseCase\Contract\IProductUploadFileServiceUseCase;
 use App\Exceptions\MensagemDetails;
 use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
-use App\Infrastructure\Product\Service\S3UploadService as ServiceS3UploadService;
 use Illuminate\Http\Request;
 use Throwable;
 
@@ -32,7 +30,7 @@ class ProductUploadFileController extends Controller
             $filePath = $file->getRealPath();
 
             $originalName = $file->getClientOriginalName();
-            $storedFileName = 'product_' . $id . '_' . time() . '_' . $originalName;
+            $storedFileName = 'product_'.$id.'_'.time().'_'.$originalName;
 
             $response = $this->productFileUseCase->execute($filePath, $originalName, $storedFileName, $id);
 
@@ -43,6 +41,7 @@ class ProductUploadFileController extends Controller
             return response()->json(['message' => 'Image uploaded', 'data' => $response], 201);
         } catch (NotFoundException $e) {
             $erroDetails = new MensagemDetails($e->getMessage(), 'warning', $e->getCode());
+
             return response()->json($erroDetails->toArray(), $e->getCode() ?: 500);
         } catch (Throwable $e) {
             return response()->json(['message' => $e->getMessage()], $e->getCode() ?: 500);

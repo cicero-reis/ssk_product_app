@@ -13,7 +13,7 @@ it('updates a product', function () {
             'price' => 100,
             'description' => 'Description of Product 1',
             'client_id' => 1,
-            'category_id' => 1
+            'category_id' => 1,
         ])
         ->willReturn([
             'id' => 1,
@@ -21,7 +21,7 @@ it('updates a product', function () {
             'price' => 100,
             'description' => 'Description of Product 1',
             'client_id' => 'client_id',
-            'category_id' => 1
+            'category_id' => 1,
         ]);
 
     $useCase = new ProductUpdateUseCase($productRepositoryMock);
@@ -31,7 +31,7 @@ it('updates a product', function () {
         'price' => 100,
         'description' => 'Description of Product 1',
         'client_id' => 1,
-        'category_id' => 1
+        'category_id' => 1,
     ]);
 
     expect($result['id'])->toBe(1);

@@ -15,7 +15,7 @@ it('calls repository with correct parameters', function () {
             'price' => 100,
             'description' => 'Description of Product 1',
             'client_id' => 'client_id',
-            'category_id' => 1
+            'category_id' => 1,
         ]);
 
     $useCase = new ProductGetAllUseCase($productRepositoryMock);

@@ -23,7 +23,7 @@ class ProductGetAllController extends Controller
     public function __invoke(Request $request): JsonResponse
     {
         try {
-            
+
             $body = $request->all();
 
             $products = $this->productUseCase->execute($body);

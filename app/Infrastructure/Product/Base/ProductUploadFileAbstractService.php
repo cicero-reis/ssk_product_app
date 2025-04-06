@@ -3,7 +3,6 @@
 namespace App\Infrastructure\Product\Base;
 
 use App\Events\ProductImageUploadedEvent;
-use App\Exceptions\NotFoundException;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Throwable;
@@ -19,17 +18,17 @@ abstract class ProductUploadFileAbstractService
 
     public function storageFile($filePath, $originalName, $storedFileName, $productId)
     {
-        if (!file_exists($filePath)) {
+        if (! file_exists($filePath)) {
             return ['error' => 'File not found'];
         }
 
         $fileContent = file_get_contents($filePath);
-        $base64Image = 'data:image/' . pathinfo($storedFileName, PATHINFO_EXTENSION) . ';base64,' . base64_encode($fileContent);
+        $base64Image = 'data:image/'.pathinfo($storedFileName, PATHINFO_EXTENSION).';base64,'.base64_encode($fileContent);
 
         $payLoad = [
             'fileName' => $storedFileName,
             'fileContent' => $base64Image,
-            'bucketName' => env('AWS_BUCKET_NAME')
+            'bucketName' => env('AWS_BUCKET_NAME'),
         ];
 
         try {
@@ -45,12 +44,12 @@ abstract class ProductUploadFileAbstractService
         } catch (Throwable $e) {
             Log::error('Failed to upload image', [
                 'fileName' => $originalName,
-                'message' => $e->getMessage()
+                'message' => $e->getMessage(),
             ]);
 
             return [
                 'error' => true,
-                'message' => 'Failed to upload image'
+                'message' => 'Failed to upload image',
             ];
         }
     }
