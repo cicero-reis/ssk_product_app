@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(\App\Http\Middleware\ValidateResource::class);
+        $middleware->alias([
+            'auth.jwt' => \App\Http\Middleware\VerifyJWT::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

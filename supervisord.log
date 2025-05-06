@@ -1,0 +1,66 @@
+2025-05-04 09:32:05,441 INFO supervisord started with pid 1
+2025-05-04 09:32:06,445 INFO spawned: 'laravel' with pid 8
+2025-05-04 09:32:06,504 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 09:53:42,777 INFO supervisord started with pid 1
+2025-05-04 09:53:43,781 INFO spawned: 'laravel' with pid 7
+2025-05-04 09:53:44,783 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:04:13,239 INFO supervisord started with pid 1
+2025-05-04 10:04:14,246 INFO spawned: 'laravel' with pid 8
+2025-05-04 10:04:15,478 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:18:21,330 INFO supervisord started with pid 1
+2025-05-04 10:18:22,333 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:18:23,355 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:25:27,786 INFO supervisord started with pid 1
+2025-05-04 10:25:28,790 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:25:30,149 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:25:53,768 WARN received SIGTERM indicating exit request
+2025-05-04 10:25:53,769 INFO waiting for laravel to die
+2025-05-04 10:25:53,802 INFO stopped: laravel (exit status 0)
+2025-05-04 10:25:53,806 INFO reaped unknown pid 33 (exit status 1)
+2025-05-04 10:25:53,823 INFO reaped unknown pid 34 (exit status 1)
+2025-05-04 10:25:53,823 INFO reaped unknown pid 32 (exit status 1)
+2025-05-04 10:26:18,485 INFO supervisord started with pid 1
+2025-05-04 10:26:19,491 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:26:20,752 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:31:00,926 INFO supervisord started with pid 1
+2025-05-04 10:31:01,932 INFO spawned: 'laravel' with pid 8
+2025-05-04 10:31:02,934 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:33:32,203 INFO supervisord started with pid 1
+2025-05-04 10:33:33,207 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:33:34,829 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:37:31,407 WARN received SIGTERM indicating exit request
+2025-05-04 10:37:31,408 INFO waiting for laravel to die
+2025-05-04 10:39:11,282 INFO supervisord started with pid 1
+2025-05-04 10:39:12,286 INFO spawned: 'laravel' with pid 6
+2025-05-04 10:39:13,745 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:41:21,443 WARN received SIGTERM indicating exit request
+2025-05-04 10:41:21,444 INFO waiting for laravel to die
+2025-05-04 10:41:21,527 INFO reaped unknown pid 30 (exit status 1)
+2025-05-04 10:41:21,529 INFO reaped unknown pid 33 (exit status 1)
+2025-05-04 10:41:21,529 INFO reaped unknown pid 34 (exit status 1)
+2025-05-04 10:41:21,529 INFO reaped unknown pid 31 (exit status 1)
+2025-05-04 10:41:21,529 INFO reaped unknown pid 36 (exit status 1)
+2025-05-04 10:41:21,529 INFO reaped unknown pid 32 (exit status 1)
+2025-05-04 10:41:21,534 INFO stopped: laravel (exit status 0)
+2025-05-04 10:41:21,535 INFO reaped unknown pid 35 (exit status 1)
+2025-05-04 10:41:21,535 INFO reaped unknown pid 37 (exit status 1)
+2025-05-04 10:41:43,953 INFO supervisord started with pid 1
+2025-05-04 10:41:44,957 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:41:46,549 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:46:48,006 INFO supervisord started with pid 1
+2025-05-04 10:46:49,010 INFO spawned: 'laravel' with pid 8
+2025-05-04 10:46:50,012 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-04 10:53:12,336 INFO supervisord started with pid 1
+2025-05-04 10:53:13,339 INFO spawned: 'laravel' with pid 7
+2025-05-04 10:53:15,042 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:03:54,399 INFO supervisord started with pid 1
+2025-05-06 20:03:55,402 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:03:56,657 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:09:58,434 INFO supervisord started with pid 1
+2025-05-06 20:09:59,437 INFO spawned: 'laravel' with pid 6
+2025-05-06 20:10:01,083 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:14:55,067 WARN received SIGTERM indicating exit request
+2025-05-06 20:14:55,337 INFO waiting for laravel to die
+2025-05-06 20:18:15,642 INFO supervisord started with pid 1
+2025-05-06 20:18:16,644 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:18:18,614 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

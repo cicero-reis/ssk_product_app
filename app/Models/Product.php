@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ClientScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,5 +22,8 @@ class Product extends Model
         'stored_filename',
     ];
 
-    // protected $guarded = ['id'];
+    protected static function booted()
+    {
+        static::addGlobalScope(new ClientScope());
+    }
 }
