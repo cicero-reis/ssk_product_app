@@ -20,7 +20,7 @@ Route::prefix('v1')->middleware(['auth.jwt'])->group(function () {
     Route::post('/products/{id}/upload', ProductUploadFileController::class)->name('api.v1.products.upload');
 });
 
-Route::prefix('v2')->group(function () {
+Route::prefix('v2')->middleware(['auth.jwt'])->group(function () {
     Route::get('/products/{categoryId}/category', ProductGetCategoryIdController::class)->name('api.v1.products.get.category');
 });
 

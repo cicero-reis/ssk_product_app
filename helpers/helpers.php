@@ -1,11 +1,18 @@
 <?php
 
-if (! function_exists('authUser')) {
-    /**
-     * @return object
-     */
+use Tymon\JWTAuth\Facades\JWTAuth;
+
+if (!function_exists('authUser')) {
     function authUser()
     {
-        return (object) request()->get('jwt_payload');
+        try {
+            $payload = JWTAuth::parseToken()->getPayload();
+            return (object) [
+                'client_id' => $payload->get('client_id'),
+                // Pode adicionar outras claims se quiser
+            ];
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 }

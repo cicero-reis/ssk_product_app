@@ -29,7 +29,7 @@ class ProductGetAllController extends Controller
             $products = $this->productUseCase->execute($body);
 
             if (empty($products)) {
-                throw new NotFoundException('Product not founda', 404);
+                throw new NotFoundException('Product not found', 404);
             }
 
             $products = ProductResource::collection($products);

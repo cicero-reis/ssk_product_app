@@ -64,3 +64,185 @@
 2025-05-06 20:18:15,642 INFO supervisord started with pid 1
 2025-05-06 20:18:16,644 INFO spawned: 'laravel' with pid 7
 2025-05-06 20:18:18,614 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:29:16,752 INFO supervisord started with pid 1
+2025-05-06 20:29:17,754 INFO spawned: 'laravel' with pid 8
+2025-05-06 20:29:18,135 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:29:19,138 INFO spawned: 'laravel' with pid 16
+2025-05-06 20:29:19,300 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:29:21,303 INFO spawned: 'laravel' with pid 24
+2025-05-06 20:29:21,487 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:29:24,492 INFO spawned: 'laravel' with pid 32
+2025-05-06 20:29:24,656 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:29:25,657 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:31:14,308 WARN received SIGTERM indicating exit request
+2025-05-06 20:37:55,758 INFO supervisord started with pid 1
+2025-05-06 20:37:58,363 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:37:59,364 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:38:00,449 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:38:01,451 INFO spawned: 'laravel' with pid 20
+2025-05-06 20:38:01,692 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:38:02,694 INFO spawned: 'laravel' with pid 28
+2025-05-06 20:38:02,852 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:38:04,855 INFO spawned: 'laravel' with pid 36
+2025-05-06 20:38:04,999 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:38:08,004 INFO spawned: 'laravel' with pid 49
+2025-05-06 20:38:08,169 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:38:09,170 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:38:59,016 INFO supervisord started with pid 1
+2025-05-06 20:39:01,695 INFO spawned: 'laravel' with pid 6
+2025-05-06 20:39:01,961 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:02,965 INFO spawned: 'laravel' with pid 13
+2025-05-06 20:39:03,968 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:39:05,653 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:06,655 INFO spawned: 'laravel' with pid 20
+2025-05-06 20:39:07,657 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:39:08,040 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:09,043 INFO spawned: 'laravel' with pid 27
+2025-05-06 20:39:09,650 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:10,652 INFO spawned: 'laravel' with pid 34
+2025-05-06 20:39:10,940 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:12,944 INFO spawned: 'laravel' with pid 41
+2025-05-06 20:39:13,149 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:16,154 INFO spawned: 'laravel' with pid 48
+2025-05-06 20:39:17,433 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:39:17,434 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:18,438 INFO spawned: 'laravel' with pid 55
+2025-05-06 20:39:19,439 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:39:35,658 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:36,661 INFO spawned: 'laravel' with pid 62
+2025-05-06 20:39:36,810 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:37,812 INFO spawned: 'laravel' with pid 69
+2025-05-06 20:39:37,979 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:39,982 INFO spawned: 'laravel' with pid 76
+2025-05-06 20:39:40,150 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:43,154 INFO spawned: 'laravel' with pid 83
+2025-05-06 20:39:43,383 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:39:44,384 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:43:01,439 INFO supervisord started with pid 1
+2025-05-06 20:43:02,441 INFO spawned: 'laravel' with pid 6
+2025-05-06 20:43:02,847 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:43:03,851 INFO spawned: 'laravel' with pid 13
+2025-05-06 20:43:03,999 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:43:06,002 INFO spawned: 'laravel' with pid 20
+2025-05-06 20:43:06,151 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:43:09,155 INFO spawned: 'laravel' with pid 27
+2025-05-06 20:43:09,293 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:43:10,294 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:45:35,036 INFO supervisord started with pid 1
+2025-05-06 20:45:36,040 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:45:36,387 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:45:37,390 INFO spawned: 'laravel' with pid 14
+2025-05-06 20:45:37,755 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:45:39,759 INFO spawned: 'laravel' with pid 21
+2025-05-06 20:45:40,035 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:45:43,040 INFO spawned: 'laravel' with pid 28
+2025-05-06 20:45:43,282 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:45:44,283 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:45:46,284 WARN received SIGTERM indicating exit request
+2025-05-06 20:47:41,875 INFO supervisord started with pid 1
+2025-05-06 20:47:42,882 INFO spawned: 'laravel' with pid 6
+2025-05-06 20:47:43,328 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:47:44,331 INFO spawned: 'laravel' with pid 13
+2025-05-06 20:47:44,683 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:47:46,688 INFO spawned: 'laravel' with pid 20
+2025-05-06 20:47:46,948 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:47:49,952 INFO spawned: 'laravel' with pid 27
+2025-05-06 20:47:50,098 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:47:51,099 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:56:12,188 INFO supervisord started with pid 1
+2025-05-06 20:56:13,207 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:56:14,209 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:56:14,741 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:15,744 INFO spawned: 'laravel' with pid 14
+2025-05-06 20:56:17,272 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:56:17,272 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:18,275 INFO spawned: 'laravel' with pid 21
+2025-05-06 20:56:18,493 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:19,495 INFO spawned: 'laravel' with pid 28
+2025-05-06 20:56:19,756 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:21,759 INFO spawned: 'laravel' with pid 35
+2025-05-06 20:56:21,987 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:24,992 INFO spawned: 'laravel' with pid 42
+2025-05-06 20:56:25,858 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:56:27,890 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:57:20,690 INFO supervisord started with pid 1
+2025-05-06 20:57:21,702 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:57:22,473 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:57:23,477 INFO spawned: 'laravel' with pid 14
+2025-05-06 20:57:23,814 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:57:25,818 INFO spawned: 'laravel' with pid 21
+2025-05-06 20:57:26,085 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:57:30,778 INFO spawned: 'laravel' with pid 28
+2025-05-06 20:57:31,070 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:57:32,072 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 20:58:36,849 INFO supervisord started with pid 1
+2025-05-06 20:58:37,859 INFO spawned: 'laravel' with pid 7
+2025-05-06 20:58:38,862 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 20:58:40,546 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:58:41,549 INFO spawned: 'laravel' with pid 14
+2025-05-06 20:58:42,016 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:58:43,020 INFO spawned: 'laravel' with pid 21
+2025-05-06 20:58:43,314 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:58:45,319 INFO spawned: 'laravel' with pid 28
+2025-05-06 20:58:45,676 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:58:48,681 INFO spawned: 'laravel' with pid 35
+2025-05-06 20:58:48,944 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 20:58:49,945 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-05-06 21:07:29,327 INFO supervisord started with pid 1
+2025-05-06 21:07:30,332 INFO spawned: 'laravel' with pid 7
+2025-05-06 21:07:32,027 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-05-06 21:07:33,448 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 21:07:34,461 INFO spawned: 'laravel' with pid 14
+2025-05-06 21:07:34,719 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 21:07:35,721 INFO spawned: 'laravel' with pid 21
+2025-05-06 21:07:35,875 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 21:07:37,878 INFO spawned: 'laravel' with pid 28
+2025-05-06 21:07:38,032 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 21:07:41,036 INFO spawned: 'laravel' with pid 35
+2025-05-06 21:07:41,220 WARN exited: laravel (exit status 127; not expected)
+2025-05-06 21:07:42,221 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-06-07 08:56:18,189 INFO supervisord started with pid 1
+2025-06-07 08:56:19,197 INFO spawned: 'laravel' with pid 7
+2025-06-07 08:56:20,194 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 08:56:20,270 WARN exited: laravel (exit status 127; not expected)
+2025-06-07 08:56:21,274 INFO spawned: 'laravel' with pid 20
+2025-06-07 08:56:21,726 WARN exited: laravel (exit status 127; not expected)
+2025-06-07 08:56:22,730 INFO spawned: 'laravel' with pid 33
+2025-06-07 08:56:23,145 WARN exited: laravel (exit status 127; not expected)
+2025-06-07 08:56:25,149 INFO spawned: 'laravel' with pid 41
+2025-06-07 08:56:25,663 WARN exited: laravel (exit status 127; not expected)
+2025-06-07 08:56:28,670 INFO spawned: 'laravel' with pid 49
+2025-06-07 08:56:29,189 WARN exited: laravel (exit status 127; not expected)
+2025-06-07 08:56:30,191 INFO gave up: laravel entered FATAL state, too many start retries too quickly
+2025-06-07 09:13:54,429 INFO supervisord started with pid 1
+2025-06-07 09:13:55,434 INFO spawned: 'laravel' with pid 7
+2025-06-07 09:13:56,680 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 09:21:11,170 INFO supervisord started with pid 1
+2025-06-07 09:21:12,176 INFO spawned: 'laravel' with pid 7
+2025-06-07 09:21:14,005 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 09:31:15,226 INFO supervisord started with pid 1
+2025-06-07 09:31:16,230 INFO spawned: 'laravel' with pid 7
+2025-06-07 09:31:18,028 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 09:37:44,869 INFO supervisord started with pid 1
+2025-06-07 09:37:45,872 INFO spawned: 'laravel' with pid 7
+2025-06-07 09:37:47,174 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 09:40:40,062 INFO supervisord started with pid 1
+2025-06-07 09:40:41,068 INFO spawned: 'laravel' with pid 7
+2025-06-07 09:40:42,365 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 10:07:58,957 INFO supervisord started with pid 1
+2025-06-07 10:07:59,964 INFO spawned: 'laravel' with pid 7
+2025-06-07 10:08:01,634 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 10:17:14,251 INFO supervisord started with pid 1
+2025-06-07 10:17:15,255 INFO spawned: 'laravel' with pid 7
+2025-06-07 10:17:16,668 INFO success: laravel entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-06-07 11:18:26,709 WARN received SIGTERM indicating exit request
+2025-06-07 11:18:26,723 INFO waiting for laravel to die
+2025-06-07 11:18:26,882 INFO stopped: laravel (exit status 0)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 420 (exit status 1)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 422 (exit status 1)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 416 (exit status 1)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 415 (exit status 1)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 417 (exit status 1)
+2025-06-07 11:18:26,884 INFO reaped unknown pid 421 (exit status 1)
+2025-06-07 11:18:26,885 INFO reaped unknown pid 418 (exit status 1)
+2025-06-07 11:18:26,885 INFO reaped unknown pid 419 (exit status 1)

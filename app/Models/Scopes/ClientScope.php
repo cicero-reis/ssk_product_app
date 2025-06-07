@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Scope;
 
 class ClientScope implements Scope
 {
-    /**
-     * Apply the scope to a given Eloquent query builder.
-     */
     public function apply(Builder $builder, Model $model): void
     {
-        if (authUser()?->client_id) {
-            $builder->where('client_id', authUser()->client_id);
+        $user = authUser();
+
+        if ($user?->client_id) {
+            $builder->where('client_id', $user->client_id);
         }
     }
 }
